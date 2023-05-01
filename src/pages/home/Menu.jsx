@@ -28,12 +28,12 @@ const Menu = () => {
         {sliderData.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className="w-full h-auto relative">
-              <img className="w-full h-screen" src={slide.img} />
-              <div className="absolute top-40 w-3/5 bottom-0 px-32">
-                <h5 className="text-yellow-50 text-4xl font-serif font-bold">
+              <img className="w-full h-96 lg:h-screen" src={slide.img} />
+              <div className="absolute top-10 lg:top-40 lg:w-3/5 bottom-0 px-4 lg:px-32">
+                <h5 className="text-yellow-50 text-xl lg:text-4xl font-serif font-bold">
                   {slide.title}
                 </h5>
-                <p className="text-yellow-50 text-xl mt-4">
+                <p className="text-yellow-50 text-xs lg:text-xl mt-4">
                   {slide.description}
                 </p>
                 <button className="me-3 px-5 py-3 bg-orange-500 rounded text-white mt-8">
