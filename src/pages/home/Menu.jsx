@@ -13,7 +13,7 @@ const Menu = () => {
       .then((res) => res.json())
       .then((data) => setSliderData(data));
   }, []);
-  console.log(sliderData);
+  //console.log(sliderData);
   return (
     <div>
       <Swiper
