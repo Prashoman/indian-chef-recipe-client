@@ -21,7 +21,7 @@ const Header = () => {
         <ul
           className={`lg:flex lg:space-x-7 absolute lg:relative ${
             open
-              ? "top-2 lg:top-0 bg-blue-100 w-40 h-20 lg:w-0 lg:h-0 "
+              ? "top-16 right-1 text-center z-10 lg:top-0 bg-blue-100 w-40 h-20 lg:w-0 lg:h-0 "
               : "hidden"
           }`}
         >
@@ -48,7 +48,7 @@ const Header = () => {
               {user?.photoURL && (
                 <Tooltip title={user.displayName}>
                   <img
-                    className="w-16 h-5 lg:w-15 lg:h-10 rounded-full btn"
+                    className="w-10 h-5 lg:w-15 lg:h-10 rounded-full btn"
                     src={user?.photoURL}
                     alt=""
                   />
@@ -57,7 +57,7 @@ const Header = () => {
 
               <button
                 onClick={handleLogOut}
-                className="px-3 py-1 lg:px-3 lg:py-2 bg-orange-500"
+                className="ms-5 lg:ms-10  px-3 text-white rounded py-1 lg:px-3 lg:py-2 bg-orange-500"
               >
                 LogOut
               </button>
@@ -65,7 +65,7 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="px-3 py-1  lg:px-3 lg:py-2 bg-orange-500">
+                <button className="px-3 py-1 text-white rounded lg:px-3 lg:py-2 bg-orange-500">
                   Login
                 </button>
               </Link>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiOutlineThumbUp } from "react-icons/hi";
 
 const CardChef = ({ chef }) => {
   const { name, id, image, experience, numberRecipe, likes } = chef;
@@ -16,13 +17,13 @@ const CardChef = ({ chef }) => {
           <h2 className="card-title text-xl font-sans font-bold mt-3">
             Experience: {experience}
           </h2>
-          <div className="flex justify-between items-start">
+          <div className="flex  items-start mt-4">
             <p>
               <span className="text-xl font-sans font-semibold">Recipes:</span>{" "}
               {numberRecipe}
             </p>
-            <p>
-              <span className="text-xl font-sans font-semibold">Likes:</span>{" "}
+            <p className="flex justify-center items-center ms-6">
+              <HiOutlineThumbUp className="w-10 h-7"></HiOutlineThumbUp>
               {likes}
             </p>
           </div>

@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB4FdM_vC0-pwEkB8wxp_QO8bDnTViFXxs",
-  authDomain: "indian-chef-recipe-client.firebaseapp.com",
-  projectId: "indian-chef-recipe-client",
-  storageBucket: "indian-chef-recipe-client.appspot.com",
-  messagingSenderId: "574469979177",
-  appId: "1:574469979177:web:762ff4d844a772efc07038",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
