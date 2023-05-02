@@ -2,21 +2,90 @@ import React from "react";
 
 const Spinner = () => {
   return (
-    <div>
-      <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-        <div className="animate-pulse flex space-x-4">
-          <div className="rounded-full bg-slate-700 h-10 w-10"></div>
-          <div className="flex-1 space-y-6 py-1">
-            <div className="h-2 bg-slate-700 rounded"></div>
-            <div className="space-y-3">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                <div className="h-2 bg-slate-700 rounded col-span-1"></div>
-              </div>
-              <div className="h-2 bg-slate-700 rounded"></div>
-            </div>
-          </div>
-        </div>
+    <div className="text-center">
+      <div
+        aria-label="Loading..."
+        role="status"
+        className="flex justify-center items-center text-center space-x-2"
+      >
+        <svg
+          className="h-6 w-6 animate-spin stroke-gray-500"
+          viewBox="0 0 256 256"
+        >
+          <line
+            x1="128"
+            y1="32"
+            x2="128"
+            y2="64"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="195.9"
+            y1="60.1"
+            x2="173.3"
+            y2="82.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="224"
+            y1="128"
+            x2="192"
+            y2="128"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="195.9"
+            y1="195.9"
+            x2="173.3"
+            y2="173.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="128"
+            y1="224"
+            x2="128"
+            y2="192"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="60.1"
+            y1="195.9"
+            x2="82.7"
+            y2="173.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="32"
+            y1="128"
+            x2="64"
+            y2="128"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="60.1"
+            y1="60.1"
+            x2="82.7"
+            y2="82.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+        </svg>
+        <span className="text-xs font-medium text-gray-500">Loading...</span>
       </div>
     </div>
   );

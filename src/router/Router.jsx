@@ -7,11 +7,13 @@ import DetailsLayout from "../layouts/DetailsLayout";
 import ChefBanner from "../pages/details/ChefBanner";
 import RecipesCard from "../pages/details/RecipesCard";
 import PrivateRute from "./PrivateRute";
+import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -22,8 +24,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "",
+    path: "/",
     element: <DetailsLayout></DetailsLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "chef/:id",
