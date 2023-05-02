@@ -5,6 +5,7 @@ import Register from "../pages/login/Register";
 import ChefSection from "../pages/home/ChefSection";
 import DetailsLayout from "../layouts/DetailsLayout";
 import ChefBanner from "../pages/details/ChefBanner";
+import RecipesCard from "../pages/details/RecipesCard";
 
 const router = createBrowserRouter([
   {
