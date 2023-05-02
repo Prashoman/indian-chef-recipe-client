@@ -17,14 +17,6 @@ const router = createBrowserRouter([
         element: <ChefSection></ChefSection>,
         loader: () => fetch("http://localhost:5000/chef"),
       },
-      {
-        path: "login",
-        element: <Login></Login>,
-      },
-      {
-        path: "register",
-        element: <Register></Register>,
-      },
     ],
   },
   {
@@ -36,6 +28,15 @@ const router = createBrowserRouter([
         element: <ChefBanner></ChefBanner>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/chef/${params.id}`),
+      },
+      ,
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       },
     ],
   },

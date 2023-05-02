@@ -1,14 +1,52 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import LoginWithSocalMidea from "./LoginWithSocalMidea";
+import { AuthContextProvider } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const { user } = useContext(AuthContextProvider);
+  console.log(user);
+
+  const handleSinUp = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    setEmailError("");
+    setPasswordError("");
+    if (email == "") {
+      setEmailError("Email is empty");
+    }
+
+    if (password.length == 0) {
+      setPasswordError("pass field is empty");
+    } else if (password.length < 6) {
+      setPasswordError(" Password at least 6 characters");
+    }
+    if (email && password.length >= 6) {
+      console.log(email, password, name, photo);
+    }
+  };
   return (
     <div>
       <div className="border w-2/4 h-auto mx-auto py-12 mb-8 border-gray-400 shadow mt-20">
         <h1 className="text-center text-3xl font-bold font-sans mb-5">
           Register First
         </h1>
-        <form className="px-12">
+        <div className="px-12 mb-3 w-full h-auto">
+          <p className="text-red-600 text-2xl font-sans font-bold">
+            {emailError}
+          </p>
+          <p className="text-red-600 text-2xl font-sans font-bold">
+            {passwordError}
+          </p>
+        </div>
+        <form onSubmit={handleSinUp} className="px-12">
           <label className="text-2xl mb-3 block" htmlFor="name">
             Name:
           </label>
@@ -58,6 +96,7 @@ const Register = () => {
             value="SingUp"
           />
         </form>
+        <LoginWithSocalMidea></LoginWithSocalMidea>
       </div>
     </div>
   );
