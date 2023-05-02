@@ -47,8 +47,6 @@ const Register = () => {
           if (massage) {
             setError("This Email Already Exit");
           }
-          //setError(massage);
-          //console.log(error);
         });
     }
   };

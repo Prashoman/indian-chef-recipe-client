@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaAlignRight, FaTimes } from "react-icons/fa";
+import { AuthContextProvider } from "../../provider/AuthProvider";
+import { Tooltip } from "@mui/material";
 
 const Header = () => {
+  const { user } = useContext(AuthContextProvider);
   const [open, setOpen] = useState(false);
   return (
     <div className="bg-blue-100 py-3">
@@ -29,19 +32,29 @@ const Header = () => {
           </li>
         </ul>
         <div className="flex items-center justify-between">
-          <img
-            className="w-16 h-5 lg:w-20 lg:h-10 rounded-full "
-            src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-business-user-profile-vector-png-image_1541960.jpg"
-            alt=""
-          />
-          <button className="me-3 px-3 py-1 lg:px-5 lg:py-3 bg-orange-500">
-            LogOut
-          </button>
-          <Link to="/login">
-            <button className="px-3 py-1  lg:px-5 lg:py-3 bg-orange-500">
-              Login
-            </button>
-          </Link>
+          {user ? (
+            <>
+              <Tooltip title={user.displayName}>
+                <img
+                  className="w-16 h-5 lg:w-15 lg:h-10 rounded-full btn"
+                  src={user.photoURL}
+                  alt=""
+                />
+              </Tooltip>
+
+              <button className="px-3 py-1 lg:px-3 lg:py-2 bg-orange-500">
+                LogOut
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="px-3 py-1  lg:px-5 lg:py-3 bg-orange-500">
+                  Login
+                </button>
+              </Link>
+            </>
+          )}
         </div>
         <p className="md:hidden" onClick={() => setOpen(!open)}>
           {open ? (
