@@ -9,7 +9,7 @@ const Menu = () => {
   const [sliderData, setSliderData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/slider")
+    fetch("https://indian-chef-recipe-server.vercel.app/slider")
       .then((res) => res.json())
       .then((data) => setSliderData(data));
   }, []);

@@ -14,11 +14,17 @@ const Header = () => {
   };
   return (
     <div className="bg-blue-100 py-3">
-      <nav className="flex justify-between items-center px-4 lg:px-32">
+      <nav className="flex justify-between items-center px-4 lg:px-32 ">
         <h1 className="text-xl lg:text-2xl font-sans font-bold text-red-700">
           Indian Chef
         </h1>
-        <ul className="hidden lg:flex space-x-7">
+        <ul
+          className={`lg:flex lg:space-x-7 absolute lg:relative ${
+            open
+              ? "top-2 lg:top-0 bg-blue-100 w-40 h-20 lg:w-0 lg:h-0 "
+              : "hidden"
+          }`}
+        >
           <li>
             <NavLink
               to="/"
@@ -29,7 +35,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/"
+              to="/blogs"
               className={({ isActive }) => (isActive ? "text-orange-600" : "")}
             >
               BLogs

@@ -51,8 +51,8 @@ const Register = () => {
     }
   };
   return (
-    <div>
-      <div className="border w-2/4 h-auto mx-auto py-12 mb-8 border-gray-400 shadow mt-20">
+    <div className="px-4">
+      <div className="border lg:w-2/4 h-auto mx-auto py-12 mb-8 border-gray-400 shadow mt-20">
         <h1 className="text-center text-3xl font-bold font-sans mb-5">
           Register First
         </h1>

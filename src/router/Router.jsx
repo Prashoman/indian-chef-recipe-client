@@ -16,7 +16,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ChefSection></ChefSection>,
-        loader: () => fetch("http://localhost:5000/chef"),
+        loader: () =>
+          fetch("https://indian-chef-recipe-server.vercel.app/chef"),
       },
     ],
   },
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
           </PrivateRute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(
+            `https://indian-chef-recipe-server.vercel.app/chef/${params.id}`
+          ),
       },
       ,
       {
