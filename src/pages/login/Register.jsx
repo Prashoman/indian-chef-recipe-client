@@ -2,13 +2,14 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginWithSocalMidea from "./LoginWithSocalMidea";
 import { AuthContextProvider } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const { user } = useContext(AuthContextProvider);
-  console.log(user);
+  const { user, userSinUp } = useContext(AuthContextProvider);
+  //console.log(userSinUp);
 
   const handleSinUp = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const Register = () => {
     const photo = form.photo.value;
     setEmailError("");
     setPasswordError("");
+    setError("");
     if (email == "") {
       setEmailError("Email is empty");
     }
@@ -30,6 +32,24 @@ const Register = () => {
     }
     if (email && password.length >= 6) {
       console.log(email, password, name, photo);
+      userSinUp(email, password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+          updateProfile(loggedUser, {
+            displayName: name,
+            photoURL: photo,
+          });
+          form.reset();
+        })
+        .catch((error) => {
+          const massage = error.message;
+          if (massage) {
+            setError("This Email Already Exit");
+          }
+          //setError(massage);
+          //console.log(error);
+        });
     }
   };
   return (
@@ -39,6 +59,7 @@ const Register = () => {
           Register First
         </h1>
         <div className="px-12 mb-3 w-full h-auto">
+          <p className="text-red-600 text-2xl font-sans font-bold">{error}</p>
           <p className="text-red-600 text-2xl font-sans font-bold">
             {emailError}
           </p>
