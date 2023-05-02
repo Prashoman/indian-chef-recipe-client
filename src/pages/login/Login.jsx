@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginWithSocalMidea from "./LoginWithSocalMidea";
+import { AuthContextProvider } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { sinUpwithEmailPassword } = useContext(AuthContextProvider);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const password = form.password.value;
+    const email = form.email.value;
+    setError("");
+    if (password.length == 0 || email == "") {
+      setError("Fields is empty");
+    }
+    if (email && password) {
+      sinUpwithEmailPassword(email, password)
+        .then((result) => {
+          const loggedUser = result.user;
+          form.reset();
+          //console.log(loggedUser);
+        })
+        .catch((error) => {
+          const massage = error.message;
+          if (massage) {
+            setError("A user's email address or password doesn't match");
+          }
+        });
+    }
+  };
   return (
     <div className="border w-2/4 h-auto mx-auto py-12 mb-8 border-gray-400 shadow mt-20">
       <h1 className="text-center text-3xl font-bold font-sans mb-5">
         Login First
       </h1>
-      <form className="px-12">
+      <div className="px-12 mb-3 w-full h-auto">
+        <p className="text-red-600 text-2xl font-sans font-bold">{error}</p>
+      </div>
+      <form onSubmit={handleLogin} className="px-12">
         <label className="text-2xl mb-3 block" htmlFor="email">
           Email:
         </label>
