@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RecipesCard = ({ recipe }) => {
   const { image, id, name, ingredients, cookingMethod, rating } = recipe;
+  const [disable, setDisable] = useState(false);
+  const handleFavorite = () => {
+    console.log("asi");
+    toast.success("Recipe is your favorite added successfully!");
+    setDisable(!disable);
+  };
   return (
     <div>
-      <div className="card w-full h-full bg-base-100 shadow-xl px-4 py-3">
+      <div className="card w-full h-full  bg-base-100 shadow-xl px-4 py-3">
         <figure>
           <img src={image} className="w-full h-40 rounded" alt="" />
         </figure>
@@ -31,7 +39,13 @@ const RecipesCard = ({ recipe }) => {
             <span>{rating}</span>
           </p>
 
-          <button className=" px-3 py-1 bg-orange-500 rounded text-white ">
+          <button
+            onClick={handleFavorite}
+            disabled={disable}
+            className={` px-3 py-1 rounded text-white ${
+              disable ? "bg-slate-300" : "bg-orange-500"
+            }`}
+          >
             Favorite
           </button>
         </div>
