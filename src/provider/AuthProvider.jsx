@@ -17,20 +17,25 @@ const githubProvider = new GithubAuthProvider();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loader, setLoader] = useState(false);
   //created user
   const userSinUp = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //login with google
   const logInWithGoogle = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
   //login with github
   const logInWithGithub = () => {
+    setLoader(true);
     return signInWithPopup(auth, githubProvider);
   };
   //login with email and password
   const sinUpwithEmailPassword = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   //loginUser
@@ -38,6 +43,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (currenUser) => {
       setUser(currenUser);
+      setLoader(true);
     });
     return () => {
       unsubcribe();
@@ -51,6 +57,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loader,
     userSinUp,
     logInWithGoogle,
     logInWithGithub,

@@ -6,6 +6,7 @@ import ChefSection from "../pages/home/ChefSection";
 import DetailsLayout from "../layouts/DetailsLayout";
 import ChefBanner from "../pages/details/ChefBanner";
 import RecipesCard from "../pages/details/RecipesCard";
+import PrivateRute from "./PrivateRute";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "chef/:id",
-        element: <ChefBanner></ChefBanner>,
+        element: (
+          <PrivateRute>
+            <ChefBanner></ChefBanner>
+          </PrivateRute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/chef/${params.id}`),
       },

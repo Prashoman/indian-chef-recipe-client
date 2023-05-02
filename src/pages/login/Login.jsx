@@ -1,11 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWithSocalMidea from "./LoginWithSocalMidea";
 import { AuthContextProvider } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
   const { sinUpwithEmailPassword } = useContext(AuthContextProvider);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +25,7 @@ const Login = () => {
         .then((result) => {
           const loggedUser = result.user;
           form.reset();
+          navigate(from, { replace: true });
           //console.log(loggedUser);
         })
         .catch((error) => {
