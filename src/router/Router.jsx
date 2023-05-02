@@ -8,6 +8,7 @@ import ChefBanner from "../pages/details/ChefBanner";
 import RecipesCard from "../pages/details/RecipesCard";
 import PrivateRute from "./PrivateRute";
 import Error from "../pages/Error/Error";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "blogs",
+        element: <Blogs></Blogs>,
       },
     ],
   },

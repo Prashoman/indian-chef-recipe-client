@@ -42,7 +42,7 @@ const Menu = () => {
                     <h5 className="text-yellow-50 text-xl lg:text-4xl font-sans font-bold">
                       {slide.title}
                     </h5>
-                    <p className="text-yellow-50 sm:text-xs  mt-4">
+                    <p className="text-yellow-50 font-sans font-medium mt-4">
                       {slide.description}
                     </p>
                     <button className="me-3 px-5 py-3 bg-orange-500 rounded text-white mt-8">

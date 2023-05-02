@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div className="bg-blue-100 py-3">
       <nav className="flex justify-between items-center px-4 lg:px-32 ">
-        <h1 className="text-xl lg:text-2xl font-sans font-bold text-red-700">
+        <h1 className="text-xl lg:text-2xl font-sans font-bold text-orange-500">
           Indian Chef
         </h1>
         <ul
