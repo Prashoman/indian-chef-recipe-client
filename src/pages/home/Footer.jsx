@@ -46,7 +46,7 @@ const Footer = () => {
                 className="border focus:outline-none focus:border-sky-500 border-black w-52 h-10 px-3 text-black rounded"
               />
               <button className="bg-orange-500 px-6 py-2 rounded text-white">
-                Sing Up me
+                subscribe
               </button>
             </div>
           </div>

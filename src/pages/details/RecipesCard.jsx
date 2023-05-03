@@ -35,7 +35,7 @@ const RecipesCard = ({ recipe }) => {
         </div>
         <div className="flex justify-between items-center">
           <p className="flex justify-center items-center">
-            <Rating className="w-9 h-6" readOnly value={rating} />
+            <Rating style={{ maxWidth: 150 }} readOnly value={rating} />
             <span>{rating}</span>
           </p>
 

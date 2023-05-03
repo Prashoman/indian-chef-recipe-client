@@ -22,7 +22,7 @@ const Services = () => {
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-2">
             <h2 className="card-title text-2xl">Healthy vegan lunch recipes</h2>
           </div>
         </div>
@@ -46,7 +46,7 @@ const Services = () => {
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-2">
             <h2 className="card-title text-2xl">Slow cooker pasta recipes</h2>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Services = () => {
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-2">
             <h2 className="card-title text-2xl">Easy midweek meals</h2>
           </div>
         </div>
@@ -70,7 +70,7 @@ const Services = () => {
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-2">
             <h2 className="card-title text-2xl">Mood-boosting lunch recipes</h2>
           </div>
         </div>
@@ -82,7 +82,7 @@ const Services = () => {
               alt="Shoes"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body mt-2">
             <h2 className="card-title text-2xl">Coronation hummus</h2>
           </div>
         </div>
