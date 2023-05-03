@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineThumbUp } from "react-icons/hi";
+import LazyLoad from "react-lazy-load";
+import "../lazylodingcss/LazyLoadin.css";
 
 const CardChef = ({ chef }) => {
   const { name, id, image, experience, numberRecipe, likes } = chef;
@@ -8,7 +10,9 @@ const CardChef = ({ chef }) => {
     <div>
       <div className="card w-full h-full bg-base-100 shadow-xl px-4 py-6 rounded">
         <figure>
-          <img src={image} className="w-full h-52 rounded" />
+          <LazyLoad className="w-full h-52 rounded" threshold={0.99}>
+            <img src={image} className="w-full h-52 rounded" />
+          </LazyLoad>
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl font-sans font-bold mt-3">
