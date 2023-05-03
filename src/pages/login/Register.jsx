@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginWithSocalMidea from "./LoginWithSocalMidea";
 import { AuthContextProvider } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -9,6 +9,7 @@ const Register = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const { user, userSinUp } = useContext(AuthContextProvider);
+  const navigate = useNavigate();
   //console.log(userSinUp);
 
   const handleSinUp = (e) => {
@@ -26,7 +27,7 @@ const Register = () => {
     }
 
     if (password.length == 0) {
-      setPasswordError("pass field is empty");
+      setPasswordError("Password field is empty");
     } else if (password.length < 6) {
       setPasswordError(" Password at least 6 characters");
     }
@@ -41,6 +42,7 @@ const Register = () => {
             photoURL: photo,
           });
           form.reset();
+          navigate("/");
         })
         .catch((error) => {
           const massage = error.message;
@@ -110,7 +112,7 @@ const Register = () => {
             </Link>
           </p>
           <input
-            className="bg-orange-500 text-fuchsia-50 mt-7 w-full h-10 px-3 rounded"
+            className="bg-orange-500 text-fuchsia-50 mt-7 w-full h-10 px-3 rounded cursor-pointer"
             type="submit"
             value="SingUp"
           />
