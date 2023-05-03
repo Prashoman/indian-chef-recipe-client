@@ -110,7 +110,7 @@ const Register = () => {
             </Link>
           </p>
           <input
-            className="bg-red-600 text-fuchsia-50 mt-7 w-full h-10 px-3 rounded"
+            className="bg-orange-500 text-fuchsia-50 mt-7 w-full h-10 px-3 rounded"
             type="submit"
             value="SingUp"
           />

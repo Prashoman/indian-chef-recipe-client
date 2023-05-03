@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContextProvider } from "../../provider/AuthProvider";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const LoginWithSocalMidea = () => {
   const { logInWithGoogle, logInWithGithub } = useContext(AuthContextProvider);
@@ -27,18 +28,19 @@ const LoginWithSocalMidea = () => {
       });
   };
   return (
-    <div>
-      <div className="flex justify-between items-center px-12">
+    <div className="mt-7">
+      <div className="flex justify-normal items-center px-12">
         <button
           onClick={handleGoogleLogin}
-          className="bg-blue-600 text-fuchsia-50 mt-7 w-40 h-10 px-3 rounded"
+          className="bg-blue-600 text-fuchsia-50 flex justify-between items-center px-5 py-2 rounded"
         >
-          Google
+          <FaGoogle className=" me-2"></FaGoogle>Google
         </button>
         <button
           onClick={handleGithubLogin}
-          className="bg-gray-400 text-fuchsia-50 mt-7 w-40 h-10 px-3 rounded"
+          className="bg-gray-400 ms-3 text-fuchsia-50 flex justify-between items-center px-5 py-2 rounded"
         >
+          <FaGithub className="me-2"></FaGithub>
           Github
         </button>
       </div>
