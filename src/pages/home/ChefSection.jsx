@@ -4,7 +4,7 @@ import CardChef from "./CardChef";
 
 const ChefSection = () => {
   const chefData = useLoaderData();
-  console.log(chefData);
+  //console.log(chefData);
   return (
     <div className=" mt-10 lg:mt-20">
       <h1 className="text-5xl text-center font-sans font-semibold">
